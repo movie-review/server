@@ -8,6 +8,10 @@ router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
+router.post('/comment', userController.newComment)
+
+router.get('/comment/:movieId', userController.getComments)
+
 router.post('/googleSignIn', userController.googleSignIn);
 
 module.exports = router;

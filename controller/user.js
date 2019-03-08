@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.G_CLIENT_ID);
 const User = require('../models/user');
-
+const Comment = require('../models/comment')
 
 class UserController {
     static googleSignIn(req, res) {
@@ -62,6 +62,33 @@ class UserController {
         }
 
 
+    }
+
+    static newComment(req, res) {
+        const { name, movieId, comment } = req.body
+        Comment.create({
+            name,
+            movieId,
+            comment
+        })
+        .then(data => {
+            res.status(201).json(data)
+        })
+        .catch(err => {
+            res.status(500).json(err.message)
+        })
+    }
+
+    static getComments(req, res) {
+        Comment.find({
+            movieId: req.params.movieId
+        })
+        .then(data => {
+            res.status(200).json(data)
+        })
+        .catch(err => {
+            res.status(500).json(err.message)
+        })
     }
 }
 module.exports = UserController;
