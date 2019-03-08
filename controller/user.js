@@ -1,8 +1,3 @@
-const github = require('axios').create({
-    baseURL: 'https://api.github.com',
-    headers: { Authorization: process.env.TOKEN_GITHUB }
-});
-const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.G_CLIENT_ID);

@@ -5,6 +5,7 @@ axios.defaults.baseURL = `https://api.themoviedb.org/3`
 
 class TMDBController {
     static searchMovies(req, res) {
+        // console.log(req.params);
         axios.get(`/search/movie${apikey}&query=${req.body.title}`)
         .then(({ data }) => {
             if(data.length === 0) {
