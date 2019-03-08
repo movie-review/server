@@ -6,7 +6,7 @@ axios.defaults.baseURL = `https://api.themoviedb.org/3`
 class TMDBController {
     static searchMovies(req, res) {
         // console.log(req.params);
-        axios.get(`/search/movie${apikey}&query=${req.params.title}`)
+        axios.get(`/search/movie${apikey}&query=${req.body.title}`)
         .then(({ data }) => {
             if(data.length === 0) {
                 // base url poster: http://image.tmdb.org/t/p/w185/
