@@ -36,6 +36,46 @@ class TMDBController {
             res.status(500).json(err.message)
         })
     }
+
+    static getLatestMovie(req, res) {
+        axios.get(`/movie/latest${apikey}`)
+        .then(({ data }) => {
+            res.status(200).json(data)
+        })
+        .catch(err => {
+            res.status(500).json(err.message)
+        })
+    }
+
+    static getPopular(req, res) {
+        axios.get(`/movie/popular${apikey}`)
+        .then(({ data }) => {
+            res.status(200).json(data)
+        })
+        .catch(err => {
+            res.status(500).json(err.message)
+        })
+    }
+
+    static nowPlaying(req, res) {
+        axios.get(`/movie/now_playing${apikey}`)
+        .then(({ data }) => {
+            res.status(200).json(data)
+        })
+        .catch(err => {
+            res.status(500).json(err.message)
+        })
+    }
+
+    static guestSession(req, res) {
+        axios.get(`/authentication/guest_session/new${apikey}`)
+        .then(({ data }) => {
+            res.status(200).json(data)
+        })
+        .catch(err => {
+            res.status(500).json(err.message)
+        })
+    }
 }
 
 module.exports = TMDBController
