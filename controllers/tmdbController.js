@@ -23,7 +23,7 @@ class TMDBController {
     }
 
     static searchActor(req, res) {
-        axios.get(`/search/person${apikey}&query=${req.body.name}`)
+        axios.get(`/movie/${req.body.movieId}/casts${apikey}`)
         .then(({ data }) => {
             if(data.length === 0) {
                 res.status(400).json({
