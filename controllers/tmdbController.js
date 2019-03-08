@@ -8,7 +8,7 @@ class TMDBController {
         axios.get(`/search/movie${apikey}&query=${req.body.title}`)
         .then(({ data }) => {
             if(data.length === 0) {
-                // // base url poster: http://image.tmdb.org/t/p/w185/
+                // base url poster: http://image.tmdb.org/t/p/w185/
                 res.status(400).json({
                     message: 'Not found'
                 })
