@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const quoteController = require('../controller/quote')
+const quoteController = require('../controllers/quote')
 
 
 
